@@ -22,7 +22,7 @@ public class XSToonEditor : ShaderGUI
     //public static GUIContent nameText = new GUIContent("name", "desc");
     private static class Styles
     {
-        public static GUIContent version = new GUIContent("XSToon v1.3.1", "The currently installed version of XSToon.");
+        public static GUIContent version = new GUIContent("XSToon v1.3.2 DEV", "The currently installed version of XSToon.");
         public static GUIContent mainText = new GUIContent("Main Options", "The main options for the Shader");
         public static GUIContent rampText = new GUIContent("Shadow Ramp", "Shadow ramp texture, horizontal or vertical, Black to White gradient that controls how shadows look - examples are included in the Shadow Ramps folder");
         public static GUIContent specMapText = new GUIContent("Specular Map", "Specular Map, This controls where the specular pattern can show. Should be a black and white image");
@@ -111,6 +111,7 @@ public class XSToonEditor : ShaderGUI
     MaterialProperty matcapStyle;
     MaterialProperty normalTiling;
     MaterialProperty stylizedType;
+    MaterialProperty shadowTint;
     public Texture m_EmptyTexture;
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] props)
     {
@@ -156,7 +157,7 @@ public class XSToonEditor : ShaderGUI
             useRefl = ShaderGUI.FindProperty("_UseReflections", props);
             matcapStyle = ShaderGUI.FindProperty("_MatcapStyle", props);
             stylizedType = ShaderGUI.FindProperty("_StylizedReflStyle", props);
-
+            shadowTint = ShaderGUI.FindProperty("_ShadowTint", props);
             //advanced options
             colorMask = ShaderGUI.FindProperty("_colormask", props);
             stencil = ShaderGUI.FindProperty("_Stencil", props);
@@ -196,7 +197,7 @@ public class XSToonEditor : ShaderGUI
                 materialEditor.ShaderProperty(culling, culling.displayName);
                 materialEditor.ShaderProperty(shadowType, Styles.shadowTypeText);
                 materialEditor.ShaderProperty(rimStyle, Styles.rimLightTypeText);
-
+                
 
                 if (rimStyle.floatValue == 0)
                 {
@@ -220,6 +221,7 @@ public class XSToonEditor : ShaderGUI
                 //main
                 GUILayout.Label(Styles.mainText, EditorStyles.boldLabel);
                 materialEditor.TexturePropertySingleLine(Styles.MainTexText, mainTex, tint);
+                materialEditor.ShaderProperty(shadowTint, "Shadow Tint");
                 materialEditor.ShaderProperty(saturation, Styles.Saturation, 3);
                 materialEditor.TexturePropertySingleLine(Styles.normalText, normal);
                 materialEditor.ShaderProperty(normalTiling, Styles.normalTiling, 3);

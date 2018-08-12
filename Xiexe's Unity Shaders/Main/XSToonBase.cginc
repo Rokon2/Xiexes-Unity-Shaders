@@ -39,44 +39,45 @@
 			UnityGIInput GIData;
 		};
 
-		uniform float4 _EmissiveColor;
-		uniform sampler2D _EmissiveTex;
-		uniform float4 _EmissiveTex_ST;
-		uniform float _EmissiveStrength;
-		uniform sampler2D _ShadowRamp;
-		uniform sampler2D _Normal;
-		uniform float2 _NormalTiling;
-		uniform float _UseUV2forNormalsSpecular;
-		uniform float4 _SimulatedLightDirection;
-		uniform sampler2D _MainTex;
-		uniform float4 _MainTex_ST;
-		uniform float4 _Color;
-		uniform float _RimWidth;
-		uniform float3 _Xiexe;
-		uniform float _RimIntensity;
-		uniform sampler2D _SpecularMap;
-		uniform sampler2D _SpecularPattern;
-		uniform float2 _SpecularPatternTiling;
-		uniform float _SpecularIntensity;
-		uniform float _SpecularArea;
-		uniform float _Cutoff;
-		uniform float _RimlightType;
-		uniform float _RampDir;
-		uniform float _ShadowIntensity;
-		uniform float _DitherScale;
-		uniform float _ColorBanding;
-		uniform float _ReflSmoothness;
-		uniform float _Metallic;
-		uniform sampler2D _MetallicMap;
-		uniform sampler2D _RoughMap;
-		uniform samplerCUBE _BakedCube;
-		uniform float _UseReflections;
-		uniform float _UseOnlyBakedCube;
-		uniform float _ShadowType;
-		uniform float _ReflType;
-		uniform float _StylelizedIntensity;
-		uniform float _Saturation;
-		uniform float _MatcapStyle;
+		 float4 _EmissiveColor;
+		 sampler2D _EmissiveTex;
+		 float4 _EmissiveTex_ST;
+		 float _EmissiveStrength;
+		 sampler2D _ShadowRamp;
+		 sampler2D _Normal;
+		 float2 _NormalTiling;
+		 float _UseUV2forNormalsSpecular;
+		 float4 _SimulatedLightDirection;
+		 sampler2D _MainTex;
+		 float4 _MainTex_ST;
+		 float4 _Color;
+		 float _RimWidth;
+		 float3 _Xiexe;
+		 float _RimIntensity;
+		 sampler2D _SpecularMap;
+		 sampler2D _SpecularPattern;
+		 float2 _SpecularPatternTiling;
+		 float _SpecularIntensity;
+		 float _SpecularArea;
+		 float _Cutoff;
+		 float _RimlightType;
+		 float _RampDir;
+		 float _ShadowIntensity;
+		 float _DitherScale;
+		 float _ColorBanding;
+		 float _ReflSmoothness;
+		 float _Metallic;
+		 sampler2D _MetallicMap;
+		 sampler2D _RoughMap;
+		 samplerCUBE _BakedCube;
+		 float _UseReflections;
+		 float _UseOnlyBakedCube;
+		 float _ShadowType;
+		 float _ReflType;
+		 float _StylelizedIntensity;
+		 float _Saturation;
+		 float _MatcapStyle;
+		 float3 _ShadowTint;
 
 
 		float3 ShadeSH9( float3 normal )
@@ -128,6 +129,7 @@
 			float4 worldNormals = mul(unity_ObjectToWorld,float4( ase_vertexNormal , 0.0 ));
 			float4 lerpedNormals = lerp( float4( WorldNormalVector( i , normalMap ) , 0.0 ) , worldNormals , 0.3);
 			float4 vertexNormals = lerpedNormals;
+
 
 			float3 shadeSH9 = ShadeSH9(float4(0,0,0,1));
 			float3 lightColor = (_LightColor0); 
@@ -239,7 +241,7 @@
 			float realtimeShadows = saturate(1-finalShadow);
 
 		//We default to baked lighting situations, so we use these values
-			float3 indirectLight = shadeSH9;
+			float3 indirectLight = length(shadeSH9) * _ShadowTint;
 			float3 finalLight = indirectLight * (shadowRamp + ((1-_ShadowIntensity) * (1-shadowRamp)));
 
 		//If our lighting environment matches the number for realtime lighting, use these numbers instead

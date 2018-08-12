@@ -8,7 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Material Example Hair
   m_Shader: {fileID: 4800000, guid: 7a9fb2bc3175a2240bd55b7c7300b32d, type: 3}
-  m_ShaderKeywords: _ANISTROPIC_ON _CUTOUT_ON _DYNAMICTOONLIGHTING_ON _VERTICALSHADOWRAMP_ON
+  m_ShaderKeywords: _ANISTROPIC_ON _CUTOUT_ON _DYNAMICTOONLIGHTING_ON _REFLECTIONS_ON
+    _STYLIZEDREFLECTION_ON _VERTICALSHADOWRAMP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -27,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 875076c16372da74aa08755b4aece748, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicMap:
@@ -35,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d3021b1e22b431a47ac221850098a040, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughMap:
@@ -43,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8fe46b9845c3160499567b86ae0437ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
@@ -67,12 +68,12 @@ Material:
     - _Cutoff: 0.5
     - _Emissive: 0
     - _MatcapStyle: 1
-    - _Metallic: 0
+    - _Metallic: 0.966
     - _Offset: 0
     - _RampDir: 1
     - _ReadMask: 255
-    - _ReflSmoothness: 1
-    - _ReflType: 0
+    - _ReflSmoothness: 0.208
+    - _ReflType: 1
     - _RimIntensity: 0.8
     - _RimWidth: 0.2
     - _RimlightType: 0
@@ -86,10 +87,10 @@ Material:
     - _StencilFail: 0
     - _StencilOp: 0
     - _StencilZFail: 0
-    - _StylelizedIntensity: 1
-    - _StylizedReflStyle: 0
+    - _StylelizedIntensity: 0.579
+    - _StylizedReflStyle: 1
     - _UseOnlyBakedCube: 0
-    - _UseReflections: 1
+    - _UseReflections: 0
     - _UseUV2forNormalsSpecular: 0
     - _WriteMask: 255
     - _ZTest: 4
@@ -104,5 +105,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _NormalTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _ShadowTint: {r: 0, g: 0, b: 0, a: 1}
     - _SimulatedLightDirection: {r: 0, g: 45, b: 90, a: 0}
     - _SpecularPatternTiling: {r: 20, g: 20, b: 0, a: 0}

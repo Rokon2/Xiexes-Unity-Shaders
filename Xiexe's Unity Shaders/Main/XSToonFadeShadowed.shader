@@ -25,6 +25,7 @@ Shader "Xiexe/Toon/XSToonFadeShadowed"
 		_BakedCube("Local Cubemap", Cube) = "black" {}
 		_SpecularPatternTiling("Specular Pattern Tiling", Vector) = (20,20,0,0)
 		_Color("Color Tint", Color) = (1,1,1,1)
+		_ShadowTint("Shadow Tint", Color) = (0.5, 0.5, 0.5, 1)
 		_MainTex("Main Tex", 2D) = "white" {}
 		[Normal]_Normal("Normal", 2D) = "bump" {}
 		_NormalTiling("NormalTiling", Vector) = (1,1,0,0)
@@ -117,7 +118,7 @@ Shader "Xiexe/Toon/XSToonFadeShadowed"
 
 		ENDCG
 		CGPROGRAM
-		#pragma surface surf StandardCustomLighting keepalpha fullforwardshadows nometa alpha:fade
+		#pragma surface surf StandardCustomLighting keepalpha fullforwardshadows nometa
 		#pragma shader_feature _ _REFLECTIONS_ON
 		#pragma shader_feature _ _PBRREFL_ON
 		#pragma shader_feature _ _STYLIZEDREFLECTION_ON
