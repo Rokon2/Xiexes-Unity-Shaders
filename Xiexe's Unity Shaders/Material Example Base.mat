@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Material Example Base
-  m_Shader: {fileID: 4800000, guid: 7a9fb2bc3175a2240bd55b7c7300b32d, type: 3}
+  m_Shader: {fileID: 4800000, guid: fa0951284e4878f4ebddab2a8b653223, type: 3}
   m_ShaderKeywords: _CUTOUT_ON _DYNAMICTOONLIGHTING_ON _VERTICALSHADOWRAMP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5c8adfdf1c2841b4a95778edab97ca2c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicMap:
@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowRamp:
-        m_Texture: {fileID: 2800000, guid: 516133a9f844ad84d8bf8ebbaeaa13cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0fd5a28f17b5b52419ad7b0a78b1023f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
@@ -73,6 +73,7 @@ Material:
     - _ReadMask: 255
     - _ReflSmoothness: 1
     - _ReflType: 0
+    - _RenderType: 0
     - _RimIntensity: 0.8
     - _RimWidth: 0.2
     - _RimlightType: 0
@@ -97,6 +98,7 @@ Material:
     - __dirty: 1
     - _advMode: 0
     - _colormask: 15
+    - _cutoff: 0
     - _dstblend: 0
     - _mode: 0
     - _srcblend: 1
@@ -104,5 +106,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _NormalTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _ShadowTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SimulatedLightDirection: {r: 0, g: 45, b: 90, a: 0}
     - _SpecularPatternTiling: {r: 20, g: 20, b: 0, a: 0}

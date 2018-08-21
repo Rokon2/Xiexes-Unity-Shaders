@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Material Example Hair
-  m_Shader: {fileID: 4800000, guid: 7a9fb2bc3175a2240bd55b7c7300b32d, type: 3}
+  m_Shader: {fileID: 4800000, guid: fa0951284e4878f4ebddab2a8b653223, type: 3}
   m_ShaderKeywords: _ANISTROPIC_ON _CUTOUT_ON _DYNAMICTOONLIGHTING_ON _REFLECTIONS_ON
     _STYLIZEDREFLECTION_ON _VERTICALSHADOWRAMP_ON
   m_LightmapFlags: 4
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowRamp:
-        m_Texture: {fileID: 2800000, guid: 8fe46b9845c3160499567b86ae0437ec, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6f1294a0d30dd1e4097a15d8b5373b2e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
@@ -98,13 +98,16 @@ Material:
     - __dirty: 1
     - _advMode: 0
     - _colormask: 15
+    - _cutoff: 0.7
     - _dstblend: 0
     - _mode: 0
     - _srcblend: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _NormalTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTint: {r: 0, g: 0, b: 0, a: 1}
     - _SimulatedLightDirection: {r: 0, g: 45, b: 90, a: 0}
     - _SpecularPatternTiling: {r: 20, g: 20, b: 0, a: 0}

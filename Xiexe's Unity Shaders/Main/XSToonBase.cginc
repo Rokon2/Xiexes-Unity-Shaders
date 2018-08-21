@@ -78,6 +78,7 @@
 		 float _Saturation;
 		 float _MatcapStyle;
 		 float3 _ShadowTint;
+		 float _IndirectType;
 
 
 		float3 ShadeSH9( float3 normal )
@@ -241,7 +242,13 @@
 			float realtimeShadows = saturate(1-finalShadow);
 
 		//We default to baked lighting situations, so we use these values
-			float3 indirectLight = length(shadeSH9) * _ShadowTint;
+			//FakeAmbient or RealAmbient
+			float3 fakeindirectLight = length(shadeSH9) * _ShadowTint;
+			float3 realindirectLight = shadeSH9;
+
+			float3 indirectLight = lerp(realindirectLight, fakeindirectLight, _IndirectType);
+			
+			
 			float3 finalLight = indirectLight * (shadowRamp + ((1-_ShadowIntensity) * (1-shadowRamp)));
 
 		//If our lighting environment matches the number for realtime lighting, use these numbers instead
@@ -279,20 +286,21 @@
 				#endif
 			//Do Matcap
 				#ifdef _MATCAP_ON
+					metalMap = (tex2D(_MetallicMap, uv_MainTex) * _Metallic);
 				//Additive
 					if(_MatcapStyle == 0)
 					{
-						finalColor = MainColor + (reflection * _Metallic);
+						finalColor = MainColor + (reflection * _Metallic * (roughMap.r));
 					}
 				//Multiplicitive
 					if(_MatcapStyle == 1)
 					{
-						finalColor = MainColor * (reflection * _Metallic);
+						finalColor = MainColor * (reflection * _Metallic * (roughMap.r));
 					}
 				//Subtractive
 					if(_MatcapStyle == 2)
 					{
-						finalColor = MainColor - (reflection * _Metallic);
+						finalColor = MainColor - (reflection * _Metallic * (roughMap.r));
 					} 
 				#endif
 			#endif

@@ -16,6 +16,7 @@ Shader "Xiexe/Toon/XSToonTransparentShadowed"
 		[Enum(PBR,0,Stylized,1,Matcap,2,Matcap Cubemap,3)] _ReflType ("Reflection Type", Int) = 0
 		[Enum(Add,0,Multiply,1,Subtract,2)] _MatcapStyle ("Matcap Blend Mode", Int) = 1
 		[Enum(Dot,0,Anistropic,1)] _StylizedReflStyle ("StylizedReflStyle", Int) = 0
+		[Enum(Real,0,Fake,1)] _IndirectType ("Indirect Type", Int) = 0
 		
 		[NoScaleOffset]_ShadowRamp("Shadow Ramp", 2D) = "white" {}
 		[NoScaleOffset]_SpecularMap("Specular Map", 2D) = "black" {}
@@ -43,8 +44,6 @@ Shader "Xiexe/Toon/XSToonTransparentShadowed"
 		_Metallic ("Metallic", Range(0,1)) = 0
 		_StylelizedIntensity("Stylized Refl Intensity", Range(0,2)) = 1
 		_Saturation("Saturation", Range(0.1,6)) = 1
-		
-
 
 	//Don't delete these or comment them out, they are needed. Not sure why as of now.
 		[HideInInspector] _texcoord2( "", 2D ) = "white" {}

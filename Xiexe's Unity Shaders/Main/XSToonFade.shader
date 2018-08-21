@@ -16,7 +16,7 @@ Shader "Xiexe/Toon/XSToonFade"
 		[Enum(PBR,0,Stylized,1,Matcap,2,Matcap Cubemap,3)] _ReflType ("Reflection Type", Int) = 0
 		[Enum(Add,0,Multiply,1,Subtract,2)] _MatcapStyle ("Matcap Blend Mode", Int) = 1
 		[Enum(Dot,0,Anistropic,1)] _StylizedReflStyle ("StylizedReflStyle", Int) = 0
-		
+		[Enum(Real,0,Fake,1)] _IndirectType ("Indirect Type", Int) = 0		
 		[NoScaleOffset]_ShadowRamp("Shadow Ramp", 2D) = "white" {}
 		[NoScaleOffset]_SpecularMap("Specular Map", 2D) = "black" {}
 		[NoScaleOffset]_SpecularPattern("Specular Pattern", 2D) = "black" {}
